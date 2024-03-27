@@ -1,0 +1,18 @@
+extends base
+block content
+    h1.title Manage Users
+      main.main 
+            .card-container
+                each user in users
+                    .card
+                        .card__user__header
+                            .card__user__picture
+                                img.card__user__picture-img(src=`img/users/${user.photo}`, alt=`${user.name}`)
+                            span= user.name
+
+                        .card__details
+                            h4.card__sub-heading= `${user.email}`
+                            h4.card__sub-heading= `${user.role}`
+                        .card__footer__admin   
+                            input(id='tourid', value=user._id, type='hidden')
+                            a.btn.btn--green.btn--small(href=`#`) Update Details

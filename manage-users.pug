@@ -1,0 +1,39 @@
+extends base
+block content
+    h1.title Manage Users
+      main.main 
+            .card-container
+                each user in users
+                    .card
+                        .card__header
+                            .card__picture
+                                .card__picture-overlay &nbsp;
+                                img.card__picture-img(src=`img/users/${user.photo}`, alt=`${user.name}`)
+                            h3.heading-tertirary
+                                span= user.name
+
+                        .card__details
+                            h4.card__sub-heading= `${user.role} ${user.email}-day tour`
+                            p.card__text=user.active
+                        //-     .card__data
+                        //-         svg.card__icon
+                        //-             use(xlink:href='img/icons.svg#icon-map-pin')
+                        //-         span= tour.startLocation.description
+                        //-     .card__data
+                        //-         svg.card__icon
+                        //-             use(xlink:href='img/icons.svg#icon-calendar')
+                        //-         span= tour.startDates[0]
+                        //-     .card__data
+                        //-         svg.card__icon
+                        //-             use(xlink:href='img/icons.svg#icon-flag')
+                        //-         |       
+                        //-         span= `${tour.locations.length} stops`
+                        //-     .card__data
+                        //-         svg.card__icon
+                        //-             use(xlink:href='img/icons.svg#icon-user')
+                        //-         span= `${tour.maxGroupSize} people`
+
+                        .card__footer__admin   
+                            input(id='tourid', value=user._id, type='hidden')
+                            a.btn.btn--green.btn--small(href=`/manage-users/${user._id}`) Update
+                            button#deleteUseradmin.btn.btn--green.span-all-rows Delete
