@@ -7,14 +7,11 @@ const User=require('./models/userModel');
 
 
 
-const DB="mongodb://localhost:27017/natours"
-// const DB="mongodb+srv://babish9887:zSv5TDnxbCLfK56x@cluster0.mzljvwc.mongodb.net/natours?retryWrites=true&w=majority&appName=Cluster0"
+// const DB="mongodb://localhost:27017/natours"
+const DB="mongodb+srv://babish9887:zSv5TDnxbCLfK56x@cluster0.mzljvwc.mongodb.net/natours?retryWrites=true&w=majority&appName=Cluster0"
 
 mongoose.connect(DB, {
-  // useNewUrlParser: true,
-  // useCreateIndex: true,
-  // useFindAndModify: false,
-  // useUnifiedTopology: true
+
 }).then(()=>{
   // console.log(conn.connections)
   console.log('DB connection Successfull');
